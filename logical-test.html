@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>اختبار التفكير المنطقي</title>
+  <style>
+    body { font-family: 'Arial', sans-serif; background-color: #f0f0f0; text-align: center; padding: 30px; }
+    h1 { color: #2c3e50; }
+    .question { background-color: white; margin: 20px auto; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: right; }
+    button { background-color: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin-top: 20px; }
+    button:hover { background-color: #2980b9; }
+    #result { font-weight: bold; font-size: 20px; margin-top: 30px; color: #27ae60; }
+  </style>
+</head>
+<body>
+  <h1>🧠 اختبار التفكير المنطقي</h1>
+
+  <div class="question">
+    <p>السؤال 1: إذا كانت كل القطط حيوانات، وبعض الحيوانات كلاب، فهل يمكن أن تكون بعض القطط كلابًا؟</p>
+    <input type="radio" name="q1" value="خطأ"> نعم<br>
+    <input type="radio" name="q1" value="صواب"> لا
+  </div>
+
+  <div class="question">
+    <p>السؤال 2: أحمد أطول من خالد، وخالد أطول من علي، من هو الأطول؟</p>
+    <input type="radio" name="q2" value="خطأ"> علي<br>
+    <input type="radio" name="q2" value="صواب"> أحمد<br>
+    <input type="radio" name="q2" value="خطأ"> خالد
+  </div>
+
+  <div class="question">
+    <p>السؤال 3: إذا كان 2 + X = 5، فما قيمة X؟</p>
+    <input type="radio" name="q3" value="خطأ"> 2<br>
+    <input type="radio" name="q3" value="خطأ"> 1<br>
+    <input type="radio" name="q3" value="صواب"> 3
+  </div>
+
+  <div class="question">
+    <p>السؤال 4: إذا كان كل التفاح فواكه، وكل الفواكه تؤكل، فهل التفاح يؤكل؟</p>
+    <input type="radio" name="q4" value="صواب"> نعم<br>
+    <input type="radio" name="q4" value="خطأ"> لا
+  </div>
+
+  <div class="question">
+    <p>السؤال 5: إذا كان القطار يسير بسرعة 60 كم/ساعة، فكم يقطع في 3 ساعات؟</p>
+    <input type="radio" name="q5" value="صواب"> 180 كم<br>
+    <input type="radio" name="q5" value="خطأ"> 90 كم<br>
+    <input type="radio" name="q5" value="خطأ"> 120 كم
+  </div>
+
+  <button onclick="submitTest()">إرسال</button>
+
+  <div id="result"></div>
+
+  <script>
+    function submitTest() {
+      let score = 0;
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      const q3 = document.querySelector('input[name="q3"]:checked');
+      const q4 = document.querySelector('input[name="q4"]:checked');
+      const q5 = document.querySelector('input[name="q5"]:checked');
+
+      if (q1 && q1.value === "صواب") score++;
+      if (q2 && q2.value === "صواب") score++;
+      if (q3 && q3.value === "صواب") score++;
+      if (q4 && q4.value === "صواب") score++;
+      if (q5 && q5.value === "صواب") score++;
+
+      document.getElementById("result").innerText = `✅ لقد حصلت على ${score} من 5`;
+    }
+  </script>
+</body>
+</html>
